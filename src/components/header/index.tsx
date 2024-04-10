@@ -12,7 +12,13 @@ const Header = () => {
     <header>
       <div className="header-container">
         <Link href="/">
-          <Image src="/assets/Logo.svg" alt="logo" width={118} height={24} />
+          <Image
+            src="/assets/Logo.svg"
+            alt="logo"
+            width={118}
+            height={24}
+            priority
+          />
         </Link>
         <nav>
           <ul className="flex gap-3">
