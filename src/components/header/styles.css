@@ -1,0 +1,11 @@
+.header-container{
+    @apply flex items-center justify-between px-8 py-6 border-b border-[#E5E7EB];
+}
+
+.link{
+    @apply text-[#6C727F] font-semibold px-6 py-2 rounded-md;
+}
+
+.link[data-active="true"]{
+    @apply bg-[#E5E7EB] text-[#121826];
+}
