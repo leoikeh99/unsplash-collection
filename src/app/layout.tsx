@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
+import { DialogProvider } from "@/context/DialogContext";
+import AuthModal from "@/components/AuthModal";
 
 const vietnam_pro = Be_Vietnam_Pro({
   subsets: ["latin"],
@@ -20,10 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={vietnam_pro.className}>
-        <Header />
-        {children}
-      </body>
+      <DialogProvider>
+        <body className={vietnam_pro.className}>
+          <Header />
+          <main>
+            <AuthModal />
+            {children}
+          </main>
+        </body>
+      </DialogProvider>
     </html>
   );
 }

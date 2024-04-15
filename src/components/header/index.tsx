@@ -3,10 +3,12 @@ import "./styles.css";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
+import DialogContext from "@/context/DialogContext";
 
 const Header = () => {
   const pathName = usePathname();
+  const { authDialogStore } = useContext(DialogContext);
 
   return (
     <header>
@@ -20,24 +22,33 @@ const Header = () => {
             priority
           />
         </Link>
-        <nav>
-          <ul className="flex gap-3">
-            <li>
-              <Link href="/" className="link" data-active={pathName === "/"}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/collections"
-                className="link"
-                data-active={pathName === "/collections"}
-              >
-                Collections
-              </Link>
-            </li>
-          </ul>
-        </nav>
+        <div className="flex gap-7 text-[#6C727F] font-semibold">
+          <div className="pr-7 border-r-2 border-slate-300">
+            <button onClick={() => authDialogStore?.show()}>Sign in</button>
+          </div>
+          <nav>
+            <ul className="flex">
+              <li>
+                <Link
+                  href="/"
+                  className="link"
+                  data-active={pathName === "/" || pathName === "/search"}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/collections"
+                  className="link"
+                  data-active={pathName === "/collections"}
+                >
+                  Collections
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
   );
