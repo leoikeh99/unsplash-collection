@@ -5,10 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
 import DialogContext from "@/context/DialogContext";
+import { useSession } from "next-auth/react";
 
 const Header = () => {
   const pathName = usePathname();
   const { authDialogStore } = useContext(DialogContext);
+  const { status } = useSession();
 
   return (
     <header>
@@ -24,7 +26,11 @@ const Header = () => {
         </Link>
         <div className="flex gap-7 text-[#6C727F] font-semibold">
           <div className="pr-7 border-r-2 border-slate-300">
-            <button onClick={() => authDialogStore?.show()}>Sign in</button>
+            {status === "unauthenticated" ? (
+              <button onClick={() => authDialogStore?.show()}>Sign in</button>
+            ) : status === "authenticated" ? (
+              <button onClick={() => console.log()}>Logout</button>
+            ) : null}
           </div>
           <nav>
             <ul className="flex">
