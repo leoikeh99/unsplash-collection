@@ -26,7 +26,9 @@ const UserPanel = () => {
       <DropdownMenuContent>
         <DropdownMenuLabel>{data?.user?.name || "Account"}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={() => signOut()}>Logout</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer">
+          Logout
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

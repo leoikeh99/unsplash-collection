@@ -26,7 +26,7 @@ const Header = () => {
           />
         </Link>
         <div className="flex items-center gap-7 text-[#6C727F] font-semibold">
-          <div className="pr-7 border-r-2 border-slate-300">
+          <div className="pr-7 border-r-2 border-slate-300 flex items-center">
             {status === "unauthenticated" ? (
               <button onClick={() => authDialogStore?.show()}>Sign in</button>
             ) : status === "authenticated" ? (

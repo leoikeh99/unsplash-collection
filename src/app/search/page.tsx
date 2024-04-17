@@ -11,6 +11,9 @@ async function Search({
 }) {
   const search = searchParams.search as string;
 
+  let page = parseInt(searchParams.page as string) || 1;
+  page = isNaN(page) ? 1 : page;
+
   return (
     <div>
       <div className="h-20 bg-[url('/assets/gradiend-bg.svg')] bg-no-repeat bg-cover"></div>
@@ -20,7 +23,7 @@ async function Search({
       <div className="container">
         <div>
           <Suspense fallback={<p>Getting photos...</p>}>
-            <SearchResults search={search} />
+            <SearchResults search={search} page={page} />
           </Suspense>
         </div>
       </div>
