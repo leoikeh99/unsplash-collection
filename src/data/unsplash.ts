@@ -21,3 +21,13 @@ export const searchPhotos = async (search: string, page = 1) => {
     throw new Error("Something went wrong");
   }
 };
+
+export const getPhoto = async (id: string) => {
+  try {
+    const response = await unsplash.photos.get({ photoId: id });
+    if (!response.response) throw new Error("Something went wrong");
+    return response.response;
+  } catch (error) {
+    throw new Error("Something went wrong");
+  }
+};
