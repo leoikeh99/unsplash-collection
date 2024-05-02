@@ -2,15 +2,18 @@ import { getPhoto } from "@/data/unsplash";
 import "@/styles/layoutStyles.css";
 import "@/styles/uiStyles.css";
 import Image from "next/image";
-import AddToCollectionsButton from "./AddToCollectionsButton";
+import AddToCollectionsButton from "./ui/AddToCollectionsButton";
 import CollectionModal from "@/components/collection/CollectionModal";
+import CollectionList from "./CollectionList";
+import moment from "moment";
+import DownloadButton from "./ui/DownloadButton";
 
 async function ViewPhoto({ params }: { params: { id: string } }) {
   const photo = await getPhoto(params.id);
 
   return (
     <div>
-      <CollectionModal />
+      <CollectionModal photo={photo} />
       <div className="container">
         <h1 className="sr-only">{photo.description || "Image description"}</h1>
         <div className="grid grid-cols-2 gap-9 py-10">
@@ -35,23 +38,15 @@ async function ViewPhoto({ params }: { params: { id: string } }) {
               <p className="text-md font-semibold">{photo.user.name}</p>
             </div>
             <p className="text-sm font-light mb-5">
-              Published on {new Date(photo.created_at).toDateString()}
+              Published on {moment(photo.created_at).format("MMMM DD, YYYY")}
             </p>
             <div className="flex gap-4 mb-12">
               <AddToCollectionsButton />
-              <button className="button">
-                <Image
-                  src="/assets/down arrow.svg"
-                  alt=""
-                  width={22}
-                  height={22}
-                />
-                Download
-              </button>
+              <DownloadButton photo={photo} />
             </div>
             <div>
               <h2 className="text-2xl font-semibold mb-3">Collections</h2>
-              <div></div>
+              <CollectionList id={photo.id} />
             </div>
           </div>
         </div>

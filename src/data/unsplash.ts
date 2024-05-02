@@ -31,3 +31,15 @@ export const getPhoto = async (id: string) => {
     throw new Error("Something went wrong");
   }
 };
+
+export const getUserPhotos = async (ids: string[]) => {
+  try {
+    const response = await Promise.all(
+      ids.map(async (id) => await unsplash.photos.get({ photoId: id }))
+    );
+    if (!response) throw new Error("Something went wrong");
+    return response.map((photo) => photo.response);
+  } catch (error) {
+    throw new Error("Something went wrong");
+  }
+};

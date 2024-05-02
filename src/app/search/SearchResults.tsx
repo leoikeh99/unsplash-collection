@@ -1,6 +1,6 @@
-import PhotosList from "@/components/photos/PhotosList";
+import PhotosList from "@/components/Photoslist";
 import { searchPhotos } from "@/data/unsplash";
-import { groupPhotoColumns } from "@/utils";
+import { groupArray } from "@/utils";
 import SearchPagination from "./SearchPagination";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 
 async function SearchResults({ search, page }: Props) {
   const data = await searchPhotos(search, page);
-  const photoColumns = groupPhotoColumns(data.results);
+  const photoColumns = groupArray(data.results);
 
   return (
     <div>

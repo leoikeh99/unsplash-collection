@@ -1,7 +1,23 @@
-.button{
-    @apply bg-[#E5E7EB] font-semibold px-5 py-3 rounded-md flex items-center gap-3 cursor-pointer
+.btn{
+    @apply bg-[#E5E7EB] font-semibold flex items-center justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed
 }
 
-.button-ghost{
-    @apply text-sm font-semibold flex items-center gap-3 cursor-pointer
+.btn-base{
+    @apply px-5 py-3 rounded-md gap-3
+}
+
+.btn-sm{
+    @apply text-sm px-3 py-2 rounded-sm gap-2
+}
+
+.btn-xs{
+    @apply text-xs px-2 py-1 rounded-sm gap-1
+}
+
+.btn-ghost{
+    @apply font-semibold flex items-center gap-3 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed
+}
+
+.btn-danger{
+    @apply bg-red-500 text-white
 }

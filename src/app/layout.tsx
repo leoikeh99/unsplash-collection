@@ -22,15 +22,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Providers>
-        <body className={vietnam_pro.className}>
-          <Header />
-          <main>
-            <AuthModal />
-            {children}
-          </main>
-        </body>
-      </Providers>
+      <body className={vietnam_pro.className}>
+        <Providers>
+          <>
+            <Header />
+            <main>
+              <AuthModal />
+              {children}
+            </main>
+          </>
+        </Providers>
+      </body>
     </html>
   );
 }

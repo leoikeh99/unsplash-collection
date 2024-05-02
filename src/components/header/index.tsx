@@ -7,6 +7,7 @@ import React, { useContext } from "react";
 import DialogContext from "@/context/DialogContext";
 import { useSession } from "next-auth/react";
 import UserPanel from "./UserPanel";
+import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   const pathName = usePathname();
@@ -25,7 +26,7 @@ const Header = () => {
             priority
           />
         </Link>
-        <div className="flex items-center gap-7 text-[#6C727F] font-semibold">
+        <div className="hidden sm:flex items-center gap-7 text-[#6C727F] font-semibold">
           <div className="pr-7 border-r-2 border-slate-300 flex items-center">
             {status === "unauthenticated" ? (
               <button onClick={() => authDialogStore?.show()}>Sign in</button>
@@ -56,6 +57,7 @@ const Header = () => {
             </ul>
           </nav>
         </div>
+        <MobileMenu />
       </div>
     </header>
   );
