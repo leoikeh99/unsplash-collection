@@ -15,6 +15,7 @@ const MobileMenu = () => {
   return (
     <div className="sm:hidden">
       <button onClick={() => dialogStore.show()}>
+        <span className="sr-only">Open menu</span>
         <Menu />
       </button>
       <Dialog
