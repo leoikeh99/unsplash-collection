@@ -23,7 +23,7 @@ const UserPanel = () => {
           className="rounded-full"
         />
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className="hidden sm:block">
         <DropdownMenuLabel>{data?.user?.name || "Account"}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => signOut()} className="cursor-pointer">

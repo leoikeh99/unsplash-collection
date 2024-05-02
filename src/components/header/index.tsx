@@ -1,6 +1,5 @@
 "use client";
 import "./styles.css";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
@@ -8,9 +7,9 @@ import DialogContext from "@/context/DialogContext";
 import { useSession } from "next-auth/react";
 import UserPanel from "./UserPanel";
 import MobileMenu from "./MobileMenu";
+import NavLinks from "./NavLinks";
 
 const Header = () => {
-  const pathName = usePathname();
   const { authDialogStore } = useContext(DialogContext);
   const { status } = useSession();
 
@@ -34,28 +33,7 @@ const Header = () => {
               <UserPanel />
             ) : null}
           </div>
-          <nav>
-            <ul className="flex">
-              <li>
-                <Link
-                  href="/"
-                  className="link"
-                  data-active={pathName === "/" || pathName === "/search"}
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/collections"
-                  className="link"
-                  data-active={pathName === "/collections"}
-                >
-                  Collections
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <NavLinks />
         </div>
         <MobileMenu />
       </div>
