@@ -1,11 +1,14 @@
 import "@/styles/layoutStyles.css";
 import "@/styles/uiStyles.css";
 import { getUserCollection } from "@/data/collection";
-import { groupArray } from "@/utils";
 import PhotosList from "@/components/Photoslist";
 import { unstable_noStore as noStore } from "next/cache";
 import EditCollection from "./EditCollection";
 import DeleteCollection from "./DeleteCollection";
+import { Basic } from "unsplash-js/dist/methods/photos/types";
+import { getServerSession } from "next-auth";
+import authOptions from "@/app/api/auth/[...nextauth]/authOptions";
+import { redirect } from "next/navigation";
 
 type Props = {
   params: {
@@ -15,10 +18,12 @@ type Props = {
 
 async function CollectionPage({ params }: Props) {
   noStore();
+  const session = await getServerSession(authOptions);
+  if (!session) redirect("/");
+
   const { id } = params;
   const collection = await getUserCollection(id);
-  const photos = collection.photos;
-  const photoColumns = groupArray(photos);
+  const photos = collection.photos as Basic[];
 
   return (
     <div className="container pt-12">
@@ -40,7 +45,7 @@ async function CollectionPage({ params }: Props) {
         </div>
       </div>
       <div className="mt-10">
-        <PhotosList photoColumns={photoColumns} />
+        <PhotosList photos={photos} />
       </div>
     </div>
   );

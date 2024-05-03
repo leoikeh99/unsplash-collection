@@ -5,7 +5,7 @@ export function classNames(...classes: Array<string>) {
 }
 
 export function groupArray(arr: any[], numOfColumns = 4) {
-  let groupedArr: Basic[][] = [];
+  let groupedArr: any[][] = [];
 
   for (let i = 0; i < numOfColumns; i++) {
     groupedArr.push([]);

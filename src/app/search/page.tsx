@@ -18,7 +18,7 @@ async function Search({
   return (
     <div>
       <div className="h-20 bg-[url('/assets/gradiend-bg.svg')] bg-no-repeat bg-cover"></div>
-      <div className="max-w-[555px] mx-auto -mt-6 mb-10">
+      <div className="max-w-[min(34.68rem,95%)] mx-auto -mt-6 mb-10">
         <SearchForm />
       </div>
       <div className="container">

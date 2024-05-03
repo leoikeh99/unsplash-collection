@@ -1,9 +1,12 @@
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
 const NavLinks = () => {
+  const { status } = useSession();
   const pathName = usePathname();
+
   return (
     <nav>
       <ul className="grid sm:flex">
@@ -16,15 +19,17 @@ const NavLinks = () => {
             Home
           </Link>
         </li>
-        <li>
-          <Link
-            href="/collections"
-            className="link"
-            data-active={pathName === "/collections"}
-          >
-            Collections
-          </Link>
-        </li>
+        {status === "authenticated" && (
+          <li>
+            <Link
+              href="/collections"
+              className="link"
+              data-active={pathName === "/collections"}
+            >
+              Collections
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

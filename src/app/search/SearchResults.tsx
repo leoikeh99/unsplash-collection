@@ -10,11 +10,10 @@ type Props = {
 
 async function SearchResults({ search, page }: Props) {
   const data = await searchPhotos(search, page);
-  const photoColumns = groupArray(data.results);
 
   return (
     <div>
-      <PhotosList photoColumns={photoColumns} />
+      <PhotosList photos={data.results} />
       <SearchPagination
         search={search}
         page={page}

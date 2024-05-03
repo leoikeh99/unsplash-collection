@@ -14,7 +14,7 @@ const DownloadButton = ({ photo }: Props) => {
   async function handleDownload() {
     const a = document.createElement("a");
     a.href = await toDataURL(photo.urls.raw);
-    a.download = `${photo.description}.jpg` || `${photo.id}.jpg`;
+    a.download = `${photo.description}.jpg` || `${photo.id}.jpg` || "image.jpg";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);

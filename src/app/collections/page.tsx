@@ -1,8 +1,14 @@
 import "@/styles/layoutStyles.css";
 import { Suspense } from "react";
 import CollectionsList from "./CollectionsList";
+import { getServerSession } from "next-auth";
+import authOptions from "../api/auth/[...nextauth]/authOptions";
+import { redirect } from "next/navigation";
 
-function Collections() {
+async function Collections() {
+  const session = await getServerSession(authOptions);
+  if (!session) redirect("/");
+
   return (
     <div className="container pt-12">
       <div className="max-w-[25rem] mx-auto">
