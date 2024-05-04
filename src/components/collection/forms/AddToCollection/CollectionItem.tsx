@@ -61,7 +61,9 @@ const CollectionItem = ({ collection, photo }: Props) => {
             {!addToCollectionMutation.isPending ? (
               <>
                 <Image src="/assets/Plus.svg" alt="" width={20} height={20} />
-                Add <span className="hidden sm:inline">to Collection</span>
+                <span>
+                  Add <span className="hidden sm:inline">to Collection</span>
+                </span>
               </>
             ) : (
               "Adding..."

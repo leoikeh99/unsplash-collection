@@ -34,6 +34,7 @@ export const editCollectionAction = async (formData: FormData) => {
     }
 
     revalidatePath(`/collections/${id}`);
+    revalidatePath("/collections");
 
     return {
       success: true,

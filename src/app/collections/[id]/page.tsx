@@ -32,8 +32,8 @@ async function CollectionPage({ params }: Props) {
           {collection.title}
         </h1>
         <p className="text-center">
-          {collection.photoIds.length} photo
-          {collection.photoIds.length > 1 ? "s" : ""}
+          {collection.photos.length} photo
+          {collection.photos.length !== 1 ? "s" : ""}
         </p>
         <div className="flex justify-center gap-3">
           <EditCollection

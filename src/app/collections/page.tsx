@@ -27,7 +27,7 @@ async function Collections() {
           </a>
         </p>
       </div>
-      <div className="mt-20">
+      <div className="mt-20 mb-10">
         <Suspense fallback={<p>Getting collections...</p>}>
           <CollectionsList />
         </Suspense>
