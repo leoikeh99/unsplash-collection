@@ -47,7 +47,7 @@ const CollectionModal = ({ photo }: { photo: Full }) => {
                   />
                 </button>
               )}
-              <DialogHeading className="text-xl font-bold">
+              <DialogHeading className="text-lg sm:text-xl font-bold">
                 {!createCollection ? "Add to Collections" : "New Collection"}
               </DialogHeading>
             </div>
@@ -57,7 +57,7 @@ const CollectionModal = ({ photo }: { photo: Full }) => {
                 onClick={() => setCreateCollection(true)}
               >
                 <Image src="/assets/Plus.svg" alt="" width={20} height={20} />
-                New Collection
+                New <span className="hidden sm:inline">Collection</span>
               </button>
             )}
           </div>

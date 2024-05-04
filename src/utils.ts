@@ -42,3 +42,11 @@ export const pagination =
       ...(end < total - 1 ? [ellipsis, total] : end < total ? [total] : []),
     ];
   };
+
+//limit text by reducing the number of letters if num of letters > 12
+export const limitText = (text: string, limit = 12) => {
+  if (text.length > limit) {
+    return text.slice(0, limit) + "...";
+  }
+  return text;
+};

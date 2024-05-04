@@ -41,7 +41,7 @@ const AddToCollection = ({ photo }: { photo: Full }) => {
           type="text"
           name="search"
           placeholder="Search your collections"
-          className="w-full py-4 pl-4 pr-12 text-slate-900 border rounded-md outline-none  focus:border-indigo-600 shadow"
+          className="w-full py-3 sm:py-4 pl-4 pr-12 text-slate-900 border rounded-md outline-none  focus:border-indigo-600 shadow"
           onChange={onSearchChange}
         />
       </div>
@@ -57,7 +57,7 @@ const AddToCollection = ({ photo }: { photo: Full }) => {
         ) : collectionQuery.isError ? (
           <p>Error</p>
         ) : (
-          <div className="grid gap-3">
+          <div className="">
             {collectionQuery.data?.map((collection) => (
               <CollectionItem
                 key={collection.id}

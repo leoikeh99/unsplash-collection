@@ -28,7 +28,7 @@ const CollectionItem = ({
 
   return (
     <button
-      className="flex gap-4 items-center text-left p-2 hover:bg-[#E5E7EB] rounded-lg group w-full disabled:cursor-not-allowed"
+      className="flex w-full gap-3 sm:gap-4 items-center text-left p-2 hover:bg-[#E5E7EB] rounded-lg group disabled:cursor-not-allowed [&:not(:last-child)]:mb-3"
       onClick={() => removePhotoMutation.mutate()}
       disabled={removePhotoMutation.isPending}
     >
@@ -41,20 +41,24 @@ const CollectionItem = ({
         width={73}
         alt={collection.title}
         className={classNames(
-          "w-[4.3rem] h-[4.5rem] object-cover rounded-lg",
+          "w-[3.3rem] h-[3.5rem] sm:w-[4.3rem] sm:h-[4.5rem] object-cover rounded-lg",
           !collection.photos[collection.photos.length - 1]
             ? "border-2 border-gray-300"
             : ""
         )}
       />
-      <div className="flex flex-1 items-center justify-between">
-        <div>
-          <p className="font-semibold">{collection.title}</p>
-          <p className="text-sm">{collection.photos.length} photos</p>
+      <div className="flex flex-1 min-w-0 items-center justify-between">
+        <div className="flex-1 min-w-0">
+          <p className="font-semibold whitespace-nowrap overflow-hidden overflow-ellipsis">
+            {collection.title}
+          </p>
+          <p className="text-sm whitespace-nowrap overflow-hidden overflow-ellipsis">
+            {collection.photos.length} photos
+          </p>
         </div>
         <div>
           {
-            <p className="btn-ghost btn-sm invisible group-hover:visible">
+            <p className="btn-ghost btn-sm sm:invisible group-hover:visible">
               {!removePhotoMutation.isPending ? (
                 <>
                   <Image
@@ -103,7 +107,7 @@ function CollectionList({ id }: { id: string }) {
             <p>Loading...</p>
           ) : photoCollectionQuery.data &&
             photoCollectionQuery.data.length > 0 ? (
-            <div className="grid gap-3">
+            <div className="">
               {photoCollectionQuery.data.map((collection) => (
                 <CollectionItem
                   key={collection.id}

@@ -28,7 +28,7 @@ const CollectionItem = ({ collection, photo }: Props) => {
 
   return (
     <button
-      className="flex gap-4 items-center text-left p-2 disabled:cursor-not-allowed hover:bg-[#E5E7EB] rounded-lg group"
+      className="flex w-full gap-4 items-center text-left p-2 disabled:cursor-not-allowed hover:bg-[#E5E7EB] rounded-lg group"
       onClick={() => addToCollectionMutation.mutate()}
       disabled={addToCollectionMutation.isPending}
     >
@@ -41,23 +41,27 @@ const CollectionItem = ({ collection, photo }: Props) => {
         width={73}
         alt={collection.title}
         className={classNames(
-          "w-[4.3rem] h-[4.5rem] object-cover rounded-lg",
+          "w-[3.3rem] h-[3.5rem] sm:w-[4.3rem] sm:h-[4.5rem] object-cover rounded-lg",
           !collection.photos[collection.photos.length - 1]
             ? "border-2 border-gray-300"
             : ""
         )}
       />
-      <div className="flex flex-1 items-center justify-between">
-        <div>
-          <p className="font-semibold">{collection.title}</p>
-          <p className="text-sm">{collection.photos.length} photos</p>
+      <div className="flex flex-1 min-w-0 items-center justify-between">
+        <div className="flex-1 min-w-0">
+          <p className="font-semibold whitespace-nowrap overflow-hidden overflow-ellipsis">
+            {collection.title}
+          </p>
+          <p className="text-sm whitespace-nowrap overflow-hidden overflow-ellipsis">
+            {collection.photos.length} photos
+          </p>
         </div>
         <div>
-          <p className="btn-ghost btn-sm invisible group-hover:visible group-focus:visible">
+          <p className="btn-ghost btn-sm sm:invisible group-hover:visible group-focus:visible">
             {!addToCollectionMutation.isPending ? (
               <>
                 <Image src="/assets/Plus.svg" alt="" width={20} height={20} />
-                Add to Collection
+                Add <span className="hidden sm:inline">to Collection</span>
               </>
             ) : (
               "Adding..."

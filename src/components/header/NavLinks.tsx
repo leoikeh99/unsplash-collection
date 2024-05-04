@@ -19,17 +19,15 @@ const NavLinks = () => {
             Home
           </Link>
         </li>
-        {status === "authenticated" && (
-          <li>
-            <Link
-              href="/collections"
-              className="link"
-              data-active={pathName === "/collections"}
-            >
-              Collections
-            </Link>
-          </li>
-        )}
+        <li>
+          <Link
+            href="/collections"
+            className="link"
+            data-active={pathName === "/collections"}
+          >
+            Collections
+          </Link>
+        </li>
       </ul>
     </nav>
   );
