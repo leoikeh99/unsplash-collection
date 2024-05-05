@@ -1,4 +1,5 @@
 "use client";
+import { Download } from "lucide-react";
 import Image from "next/image";
 import { Full } from "unsplash-js/dist/methods/photos/types";
 
@@ -22,7 +23,7 @@ const DownloadButton = ({ photo }: Props) => {
 
   return (
     <button className="btn btn-base" onClick={() => handleDownload()}>
-      <Image src="/assets/down arrow.svg" alt="" width={22} height={22} />
+      <Download size={16} />
       Download
     </button>
   );

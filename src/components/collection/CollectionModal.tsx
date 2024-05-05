@@ -6,6 +6,7 @@ import AddToCollections from "./forms/AddToCollection";
 import CreateCollection from "./forms/CreateCollection";
 import Image from "next/image";
 import { Full } from "unsplash-js/dist/methods/photos/types";
+import { ArrowLeft, Plus } from "lucide-react";
 
 const CollectionModal = ({ photo }: { photo: Full }) => {
   const { collectionDialogStore } = useContext(DialogContext);
@@ -30,7 +31,7 @@ const CollectionModal = ({ photo }: { photo: Full }) => {
           backdrop={
             <div className="bg-black opacity-0 transition-opacity data-[enter]:opacity-40 data-[leave]:opacity-0" />
           }
-          className="fixed inset-[0.75rem] m-auto flex gap-4 flex-col h-fit max-h-[75dvh] z-50 max-w-2xl bg-white p-5 rounded-md transition-transform origin-center scale-95 data-[enter]:scale-100 data-[leave]:scale-95"
+          className="fixed inset-[0.75rem] m-auto flex gap-4 flex-col h-fit max-h-[75dvh] z-50 max-w-2xl bg-background p-5 rounded-md transition-transform origin-center scale-95 data-[enter]:scale-100 data-[leave]:scale-95"
         >
           <div className="flex justify-between">
             <div className="flex items-center gap-3">
@@ -39,12 +40,7 @@ const CollectionModal = ({ photo }: { photo: Full }) => {
                   className="cursor-pointer"
                   onClick={() => setCreateCollection(false)}
                 >
-                  <Image
-                    src="/assets/left-arrow.svg"
-                    alt=""
-                    width={20}
-                    height={20}
-                  />
+                  <ArrowLeft size={20} />
                 </button>
               )}
               <DialogHeading className="text-lg sm:text-xl font-bold">
@@ -56,7 +52,7 @@ const CollectionModal = ({ photo }: { photo: Full }) => {
                 className="btn btn-xs"
                 onClick={() => setCreateCollection(true)}
               >
-                <Image src="/assets/Plus.svg" alt="" width={20} height={20} />
+                <Plus size={16} />
                 New <span className="hidden sm:inline">Collection</span>
               </button>
             )}

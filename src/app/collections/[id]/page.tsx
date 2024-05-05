@@ -28,7 +28,7 @@ async function CollectionPage({ params }: Props) {
   return (
     <div className="container pt-12">
       <div className="max-w-[25rem] mx-auto">
-        <h1 className="text-4xl text-center text-transparent bg-clip-text font-semibold mb-3 bg-gradient-to-r from-yellow-300 via-red-300 to-violet-900 bg-cover">
+        <h1 className="text-4xl text-center text-transparent bg-clip-text font-semibold mb-3 bg-gradient-to-r from-[#F2C593] to-[#8A3282] bg-cover">
           {collection.title}
         </h1>
         <p className="text-center">

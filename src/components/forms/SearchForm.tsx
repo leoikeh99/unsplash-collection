@@ -44,7 +44,7 @@ const SearchForm = () => {
           type="text"
           name="search"
           placeholder="Enter your keywords..."
-          className="w-full py-4 pl-4 pr-12 text-slate-900 border rounded-md outline-none  focus:border-indigo-600 shadow"
+          className="w-full py-4 pl-4 pr-12 border border-border rounded-md outline-none  focus:border-indigo-600 shadow bg-background dark:bg-muted"
         />
       </div>
     </form>

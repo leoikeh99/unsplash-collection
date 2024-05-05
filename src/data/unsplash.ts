@@ -15,7 +15,10 @@ export const searchPhotos = async (search: string, page = 1) => {
     if (!response.response) throw new Error("Something went wrong");
     return {
       results: response.response.results,
-      totalPages: response.response.total_pages,
+      totalPages:
+        response.response.total_pages > 200
+          ? 200
+          : response.response.total_pages,
     };
   } catch (error) {
     throw new Error("Something went wrong");

@@ -14,12 +14,12 @@ async function CollectionsList() {
       {collections.map((collection) => (
         <div key={collection.id}>
           {collection.photos.length > 0 ? (
-            <div>
+            <div className="relative">
               <div
                 key={collection.id}
                 className={classNames(
                   "h-[13rem] xs:h-[17rem]",
-                  "grid gap-0.5 rounded-md overflow-hidden relative",
+                  "grid gap-0.5 rounded-md overflow-hidden",
                   collection.photos.length === 2
                     ? "grid-cols-2"
                     : collection.photos.length > 2
@@ -61,7 +61,7 @@ async function CollectionsList() {
               </div>
               <div className="w-full mt-3">
                 <p className="font-semibold">{collection.title}</p>
-                <p className="text-sm font-semibold text-gray-400">
+                <p className="text-sm font-semibold text-muted-foreground">
                   {collection.photos.length} photos
                 </p>
               </div>

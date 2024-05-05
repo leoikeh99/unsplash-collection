@@ -35,7 +35,7 @@ const PhotosList = ({ photos }: Props) => {
           </div>
         ))}
       </div>
-      <div className=" hidden tab:hidden sm:grid gap-5 grid-cols-3 justify-items-center">
+      <div className="hidden tab:hidden sm:grid gap-5 grid-cols-3 justify-items-center">
         {photos3Columns.map((arr, index) => (
           <div key={index}>
             {arr.map((photo) => (

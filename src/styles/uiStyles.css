@@ -1,5 +1,5 @@
 .btn{
-    @apply bg-[#E5E7EB] font-semibold flex items-center justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed
+    @apply bg-muted font-semibold flex items-center justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed
 }
 
 .btn-base{
@@ -19,5 +19,5 @@
 }
 
 .btn-danger{
-    @apply bg-red-500 text-white
+    @apply bg-destructive text-white
 }

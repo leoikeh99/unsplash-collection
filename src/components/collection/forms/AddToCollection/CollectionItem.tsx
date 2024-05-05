@@ -7,6 +7,7 @@ import type { Collection, Photo } from "@prisma/client";
 import Image from "next/image";
 import { useToast } from "@/components/ui/use-toast";
 import { title } from "process";
+import { Plus } from "lucide-react";
 
 type Props = {
   collection: Collection & { photos: Array<Photo> };
@@ -28,7 +29,7 @@ const CollectionItem = ({ collection, photo }: Props) => {
 
   return (
     <button
-      className="flex w-full gap-4 items-center text-left p-2 disabled:cursor-not-allowed hover:bg-[#E5E7EB] rounded-lg group"
+      className="flex w-full gap-4 items-center text-left p-2 disabled:cursor-not-allowed hover:bg-muted rounded-lg group"
       onClick={() => addToCollectionMutation.mutate()}
       disabled={addToCollectionMutation.isPending}
     >
@@ -60,7 +61,7 @@ const CollectionItem = ({ collection, photo }: Props) => {
           <p className="btn-ghost btn-sm sm:invisible group-hover:visible group-focus:visible">
             {!addToCollectionMutation.isPending ? (
               <>
-                <Image src="/assets/Plus.svg" alt="" width={20} height={20} />
+                <Plus size={16} />
                 <span>
                   Add <span className="hidden sm:inline">to Collection</span>
                 </span>

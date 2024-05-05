@@ -5,6 +5,7 @@ import { Full } from "unsplash-js/dist/methods/photos/types";
 import CollectionItem from "./CollectionItem";
 import { useDebounce } from "@uidotdev/usehooks";
 import { useState } from "react";
+import Loading from "./Loading";
 
 const AddToCollection = ({ photo }: { photo: Full }) => {
   const [search, setSearch] = useState("");
@@ -41,23 +42,28 @@ const AddToCollection = ({ photo }: { photo: Full }) => {
           type="text"
           name="search"
           placeholder="Search your collections"
-          className="w-full py-3 sm:py-4 pl-4 pr-12 text-slate-900 border rounded-md outline-none  focus:border-indigo-600 shadow"
+          className="w-full py-3 sm:py-4 pl-4 pr-12 border border-border rounded-md outline-none bg-background dark:bg-muted shadow"
           onChange={onSearchChange}
         />
       </div>
-      {searchQuery.trim() !== "" && collectionQuery.data && (
-        <p className="text-[#6C727F] font-semibold mb-3 mt-4 ml-2">
-          {collectionQuery.data.length} match
-          {collectionQuery.data.length === 1 ? "" : "es"}
-        </p>
+      {collectionQuery.isLoading ? (
+        <div className="my-4 bg-slate-300 w-28 h-3 rounded-lg animate-pulse"></div>
+      ) : (
+        searchQuery.trim() !== "" &&
+        collectionQuery.data && (
+          <p className="text-muted-foreground font-semibold mb-3 mt-4 ml-2">
+            {collectionQuery.data.length} match
+            {collectionQuery.data.length === 1 ? "" : "es"}
+          </p>
+        )
       )}
-      <div className="min-h-96 scroll-auto">
+      <div className="max-h-96 min-h-96 overflow-y-auto">
         {collectionQuery.isLoading ? (
-          <p>Loading...</p>
+          <Loading />
         ) : collectionQuery.isError ? (
-          <p>Error</p>
+          <p className="mt-7">Something went wrong, try again.</p>
         ) : (
-          <div className="">
+          <div>
             {collectionQuery.data?.map((collection) => (
               <CollectionItem
                 key={collection.id}

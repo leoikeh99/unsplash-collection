@@ -10,6 +10,7 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useContext } from "react";
 import DialogContext from "@/context/DialogContext";
+import { Minus } from "lucide-react";
 
 const CollectionItem = ({
   collection,
@@ -28,7 +29,7 @@ const CollectionItem = ({
 
   return (
     <button
-      className="flex w-full gap-3 sm:gap-4 items-center text-left p-2 hover:bg-[#E5E7EB] rounded-lg group disabled:cursor-not-allowed [&:not(:last-child)]:mb-3"
+      className="flex w-full gap-3 sm:gap-4 items-center text-left p-2 hover:bg-muted rounded-lg group disabled:cursor-not-allowed [&:not(:last-child)]:mb-3 group"
       onClick={() => removePhotoMutation.mutate()}
       disabled={removePhotoMutation.isPending}
     >
@@ -58,15 +59,10 @@ const CollectionItem = ({
         </div>
         <div>
           {
-            <p className="btn-ghost btn-sm sm:invisible group-hover:visible">
+            <p className="btn-ghost btn-sm sm:invisible group-hover:visible group-focus:visible">
               {!removePhotoMutation.isPending ? (
                 <>
-                  <Image
-                    src="/assets/Remove.svg"
-                    alt=""
-                    width={20}
-                    height={20}
-                  />
+                  <Minus size={16} />
                   Remove
                 </>
               ) : (

@@ -38,7 +38,7 @@ const DeleteCollection = ({ title, id }: Props) => {
   return (
     <div>
       <button
-        className="btn-ghost btn-sm text-red-500"
+        className="btn-ghost btn-sm text-destructive"
         onClick={() => dialogStore.show()}
       >
         <Trash size="16" /> Delete
@@ -48,10 +48,10 @@ const DeleteCollection = ({ title, id }: Props) => {
         backdrop={
           <div className="bg-black opacity-0 transition-opacity data-[enter]:opacity-40 data-[leave]:opacity-0" />
         }
-        className="fixed inset-[0.75rem] m-auto flex gap-5 flex-col h-fit max-h-[75dvh] z-50 max-w-md bg-white p-5 rounded-md transition-transform origin-center scale-95 data-[enter]:scale-100 data-[leave]:scale-95"
+        className="fixed inset-[0.75rem] m-auto flex gap-5 flex-col h-fit max-h-[75dvh] z-50 max-w-md bg-background p-5 rounded-md transition-transform origin-center scale-95 data-[enter]:scale-100 data-[leave]:scale-95"
       >
         <DialogHeading className="text-xl font-semibold">
-          Delete collection
+          Delete collection?
         </DialogHeading>
         <p>
           Are you sure you want to delete the collection{" "}
