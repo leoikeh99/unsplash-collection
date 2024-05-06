@@ -60,7 +60,8 @@ async function CollectionsList() {
               <div className="w-full mt-3">
                 <p className="font-semibold">{collection.title}</p>
                 <p className="text-sm font-semibold text-muted-foreground">
-                  {collection.photos.length} photos
+                  {collection.photos.length} photo
+                  {collection.photos.length !== 1 ? "s" : ""}
                 </p>
               </div>
             </div>
