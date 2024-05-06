@@ -4,6 +4,7 @@ import { Dialog, DialogHeading } from "@ariakit/react";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 import { useContext } from "react";
+import Logo from "../Logo";
 
 const AuthModal = () => {
   const { authDialogStore } = useContext(DialogContext);
@@ -16,16 +17,10 @@ const AuthModal = () => {
           backdrop={
             <div className="bg-black opacity-0 transition-opacity data-[enter]:opacity-40 data-[leave]:opacity-0" />
           }
-          className="fixed inset-[0.75rem] m-auto flex gap-4 flex-col items-center h-fit max-h-[calc(100dvh - 2 * 0.75rem)] z-50 max-w-sm bg-white p-6 rounded-md transition-transform origin-center scale-95 data-[enter]:scale-100 data-[leave]:scale-95"
+          className="fixed inset-[0.75rem] m-auto flex gap-4 flex-col items-center h-fit max-h-[calc(100dvh - 2 * 0.75rem)] z-50 max-w-sm bg-background p-6 rounded-md transition-transform origin-center scale-95 data-[enter]:scale-100 data-[leave]:scale-95"
         >
           <DialogHeading>
-            <Image
-              src="/assets/Logo.svg"
-              alt="logo"
-              width={118}
-              height={24}
-              priority
-            />
+            <Logo />
           </DialogHeading>
           <p className="text-center py-2">
             Discover inspiration. Access a world of free, stunning images now!

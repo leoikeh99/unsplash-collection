@@ -11,6 +11,7 @@ import { useSession } from "next-auth/react";
 import { useContext } from "react";
 import DialogContext from "@/context/DialogContext";
 import { Minus } from "lucide-react";
+import Loading from "@/components/collection/forms/AddToCollection/Loading";
 
 const CollectionItem = ({
   collection,
@@ -100,7 +101,7 @@ function CollectionList({ id }: { id: string }) {
       ) : (
         <>
           {photoCollectionQuery.isLoading ? (
-            <p>Loading...</p>
+            <Loading />
           ) : photoCollectionQuery.data &&
             photoCollectionQuery.data.length > 0 ? (
             <div className="">

@@ -47,7 +47,7 @@ const AddToCollection = ({ photo }: { photo: Full }) => {
         />
       </div>
       {collectionQuery.isLoading ? (
-        <div className="my-4 bg-slate-300 w-28 h-3 rounded-lg animate-pulse"></div>
+        <div className="my-4 bg-slate-300 dark:bg-slate-800 w-28 h-3 rounded-lg animate-pulse"></div>
       ) : (
         searchQuery.trim() !== "" &&
         collectionQuery.data && (

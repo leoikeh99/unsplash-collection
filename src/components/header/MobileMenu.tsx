@@ -6,6 +6,8 @@ import React, { useContext } from "react";
 import NavLinks from "./NavLinks";
 import { signOut, useSession } from "next-auth/react";
 import DialogContext from "@/context/DialogContext";
+import Logo from "../Logo";
+import ThemePanel from "./ThemePanel";
 
 const MobileMenu = () => {
   const dialogStore = useDialogStore();
@@ -23,15 +25,12 @@ const MobileMenu = () => {
         backdrop={
           <div className="sm:hidden bg-black opacity-0 transition-opacity data-[enter]:opacity-40 data-[leave]:opacity-0" />
         }
-        className="sm:hidden fixed top-0 right-0 w-80 h-dvh flex flex-col justify-between bg-white transition-transform translate-x-full data-[enter]:translate-x-0 data-[leave]:translate-x-full py-5 px-4"
+        className="sm:hidden fixed top-0 right-0 w-80 h-dvh flex flex-col justify-between bg-background transition-transform translate-x-full data-[enter]:translate-x-0 data-[leave]:translate-x-full py-5 px-4"
       >
-        <Image
-          src="/assets/Logo.svg"
-          alt="logo"
-          width={118}
-          height={24}
-          priority
-        />
+        <div className="flex items-center justify-between">
+          <Logo />
+          <ThemePanel />
+        </div>
         <div className="py-5">
           <NavLinks />
         </div>

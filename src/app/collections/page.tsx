@@ -4,6 +4,7 @@ import CollectionsList from "./CollectionsList";
 import { getServerSession } from "next-auth";
 import authOptions from "../api/auth/[...nextauth]/authOptions";
 import { redirect } from "next/navigation";
+import CollectionsLoader from "./CollectionsLoader";
 
 async function Collections() {
   const session = await getServerSession(authOptions);
@@ -28,7 +29,7 @@ async function Collections() {
         </p>
       </div>
       <div className="mt-20 mb-10">
-        <Suspense fallback={<p>Getting collections...</p>}>
+        <Suspense fallback={<CollectionsLoader />}>
           <CollectionsList />
         </Suspense>
       </div>

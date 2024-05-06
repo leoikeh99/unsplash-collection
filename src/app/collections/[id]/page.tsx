@@ -26,7 +26,7 @@ async function CollectionPage({ params }: Props) {
   const photos = collection.photos as Basic[];
 
   return (
-    <div className="container pt-12">
+    <div>
       <div className="max-w-[25rem] mx-auto">
         <h1 className="text-4xl text-center text-transparent bg-clip-text font-semibold mb-3 bg-gradient-to-r from-[#F2C593] to-[#8A3282] bg-cover">
           {collection.title}

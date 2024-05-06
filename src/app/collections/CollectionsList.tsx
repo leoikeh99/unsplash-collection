@@ -4,8 +4,6 @@ import { unstable_noStore as noStore } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 
-// grid-cols-[repeat(auto-fill,minmax(20rem,1fr))]
-
 async function CollectionsList() {
   noStore();
   const collections = await getUserCollections();
