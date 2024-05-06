@@ -13,6 +13,14 @@ export const editCollectionAction = async (formData: FormData) => {
   const session = await getServerSession(authOptions);
   const userId = session?.user.id;
 
+  if (!session || !userId) {
+    return {
+      success: false,
+      error: true,
+      message: "Unauthenticated",
+    };
+  }
+
   try {
     const updatedCollection = await prisma.collection.update({
       where: {
@@ -55,6 +63,14 @@ export const deleteCollectionAction = async (formData: FormData) => {
 
   const session = await getServerSession(authOptions);
   const userId = session?.user.id;
+
+  if (!session || !userId) {
+    return {
+      success: false,
+      error: true,
+      message: "Unauthenticated",
+    };
+  }
 
   try {
     await prisma.collection.delete({

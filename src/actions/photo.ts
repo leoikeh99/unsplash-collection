@@ -12,6 +12,14 @@ export const removePhotoAction = async (formData: FormData) => {
   const collectionId = formData.get("collectionId") as string;
   const unsplashId = formData.get("unsplashId") as string;
 
+  if (!session || !userId) {
+    return {
+      success: false,
+      error: true,
+      message: "Unauthenticated",
+    };
+  }
+
   await prisma.collection.update({
     where: {
       userId,

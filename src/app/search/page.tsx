@@ -1,5 +1,4 @@
 import "@/styles/layoutStyles.css";
-import SearchForm from "@/components/forms/SearchForm";
 import SearchResults from "./SearchResults";
 import { Suspense } from "react";
 import Loading from "@/components/Photoslist/Loading";

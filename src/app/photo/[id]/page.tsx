@@ -19,7 +19,7 @@ async function ViewPhoto({ params }: { params: { id: string } }) {
         <div className="">
           <Image
             src={photo.urls.regular}
-            className="w-full h-full object-cover rounded-md"
+            className="w-full object-cover rounded-md"
             alt={photo.alt_description || "photo image"}
             width={photo.width}
             height={photo.height}
