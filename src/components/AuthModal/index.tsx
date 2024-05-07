@@ -37,6 +37,19 @@ const AuthModal = () => {
             />
             Continue with Github
           </button>
+          <p>OR</p>
+          <button
+            onClick={() => signIn("google")}
+            className="w-full p-3 text-white bg-slate-900 rounded-3xl flex justify-center gap-2"
+          >
+            <Image
+              src="/assets/google.svg"
+              alt="github"
+              width={20}
+              height={20}
+            />
+            Continue with Google
+          </button>
         </Dialog>
       )}
     </>
