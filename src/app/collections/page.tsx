@@ -5,8 +5,10 @@ import { getServerSession } from "next-auth";
 import authOptions from "../api/auth/[...nextauth]/authOptions";
 import { redirect } from "next/navigation";
 import CollectionsLoader from "./CollectionsLoader";
+import { unstable_noStore as noStore } from "next/cache";
 
 async function Collections() {
+  noStore();
   const session = await getServerSession(authOptions);
   if (!session) redirect("/");
 
