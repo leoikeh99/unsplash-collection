@@ -6,6 +6,13 @@ import authOptions from "../api/auth/[...nextauth]/authOptions";
 import { redirect } from "next/navigation";
 import CollectionsLoader from "./CollectionsLoader";
 import { unstable_noStore as noStore } from "next/cache";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Unspalsh Collection | Your Collections",
+  description:
+    "Browse through your collections and download your favorite photos.",
+};
 
 async function Collections() {
   noStore();

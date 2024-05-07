@@ -2,7 +2,14 @@ import "@/styles/layoutStyles.css";
 import SearchResults from "./SearchResults";
 import { Suspense } from "react";
 import Loading from "@/components/Photoslist/Loading";
+import { Metadata } from "next";
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Unspalsh Collection | Search",
+  description:
+    "Search and discover photos on Unsplash, the internet's largest collection of photos.",
+};
 
 async function Search({
   searchParams,

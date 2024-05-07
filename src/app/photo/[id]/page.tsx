@@ -7,6 +7,13 @@ import CollectionModal from "@/components/collection/CollectionModal";
 import CollectionList from "./CollectionList";
 import moment from "moment";
 import DownloadButton from "./ui/DownloadButton";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Unsplash | Photo",
+  description:
+    "View and download photo from Unsplash, the internet's largest collection of photos.",
+};
 
 async function ViewPhoto({ params }: { params: { id: string } }) {
   const photo = await getPhoto(params.id);

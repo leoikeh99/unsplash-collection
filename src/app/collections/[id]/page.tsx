@@ -9,6 +9,12 @@ import { Basic } from "unsplash-js/dist/methods/photos/types";
 import { getServerSession } from "next-auth";
 import authOptions from "@/app/api/auth/[...nextauth]/authOptions";
 import { redirect } from "next/navigation";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Unspalsh Collection | Collection",
+  description: "View collection photos from Unsplash",
+};
 
 type Props = {
   params: {
