@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Unsplash Collection
 
-## Getting Started
+## Table of contents
 
-First, run the development server:
+- [Overview](#overview)
+  - [The features](#the-features)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+- [Author](#author)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Users should be able to:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Create a multiple-page website following the given design.
+- On Homepage, users can search for images from Unsplash given keywords.
+- On Homepage, when user press `Enter`, a list of images should be shown as a result if at least a keyword is provided.
+- Users can select an image and see its details in a separate Image page.
+- On Image page, users can see the author and published date.
+- On Image page, users can see a list of collections that the image belongs to.
+- On Image page, users can choose to add the image to a collection by selecting `Add to Collection` button
+- When `Add to Collection` button is selected, users can search and add images to searched - collections. The collection search result should only show collections that the image does not yet belong to.
+- On Image page, users can remove the image from its collections.
+- On Image page, users can download the image.
+- On Collections page, users can see and select existing collections.
+- On Collections page, when a collection is selected, users can see a list of images in the - collection.
 
-## Learn More
+### Screenshots
 
-To learn more about Next.js, take a look at the following resources:
+![Home Page (Light)](./screenshots/desktop_home.png)
+![Home Page (Dark)](./screenshots/desktop_home_dark.png)
+![Search Page (Light)](./screenshots/desktop_search.png)
+![Search Page (Dark)](./screenshots/desktop_search_dark.png)
+![Home Page Mobile (Light)](./screenshots/mobile_home.png)
+![Home Page Mobile (Dark)](./screenshots/mobile_home_dark.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Links
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Solution URL: [https://github.com/leoikeh99/link-sharing-app](https://github.com/leoikeh99/unsplash-collection)
+- Live Site URL: []()
 
-## Deploy on Vercel
+## My process
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Built with
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwind CSS](https://tailwindcss.com/) - For styles
+- [Shadcn UI](https://ui.shadcn.com/) - Some UI components
+- [React Query](https://react-query.tanstack.com/) - For data management
+- [NextAuth](https://next-auth.js.org/) - For authentication
+- [Prisma](https://prisma.io/) - ORM
+- [MongoDB](https://mongobd.com/) - Database
+
+## Author
+
+- Website - [Leonard Ikeh](https://leonardikeh.netlify.app/)
+- Linkedin - [@leonard](https://www.linkedin.com/in/leonard-ikeh-22367a209/)
+- Twitter - [@wazza_dev](https://www.twitter.com/wazza_dev)
