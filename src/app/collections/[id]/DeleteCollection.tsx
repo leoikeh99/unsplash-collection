@@ -55,7 +55,7 @@ const DeleteCollection = ({ title, id }: Props) => {
         </DialogHeading>
         <p>
           Are you sure you want to delete the collection{" "}
-          <strong>'{title}'</strong>? This action cannot be reversed.
+          <strong>&apos;{title}&apos;</strong>? This action cannot be reversed.
         </p>
 
         <div className="flex gap-3 justify-end">

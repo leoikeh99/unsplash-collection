@@ -4,8 +4,10 @@ import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { unstable_noStore as noStore } from "next/cache";
 
 export const editCollectionAction = async (formData: FormData) => {
+  noStore();
   const title = formData.get("title") as string;
   const description = formData.get("description") as string;
   const id = formData.get("id") as string;
@@ -59,6 +61,7 @@ export const editCollectionAction = async (formData: FormData) => {
 };
 
 export const deleteCollectionAction = async (formData: FormData) => {
+  noStore();
   const id = formData.get("id") as string;
 
   const session = await getServerSession(authOptions);
