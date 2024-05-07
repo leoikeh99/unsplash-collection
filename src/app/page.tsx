@@ -1,4 +1,5 @@
 import SearchForm from "@/components/forms/SearchForm";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -10,7 +11,9 @@ export default function Home() {
         <p className="text-center font-medium mb-6">
           Search high-resolution images from Unsplash
         </p>
-        <SearchForm />
+        <Suspense>
+          <SearchForm />
+        </Suspense>
       </div>
     </div>
   );

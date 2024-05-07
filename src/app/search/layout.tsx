@@ -1,5 +1,6 @@
 import "@/styles/layoutStyles.css";
 import SearchForm from "@/components/forms/SearchForm";
+import { Suspense } from "react";
 
 function SearchPageLayout({
   children,
@@ -10,7 +11,9 @@ function SearchPageLayout({
     <div>
       <div className="h-20 bg-[url('/assets/gradiend-bg.svg')] bg-no-repeat bg-cover"></div>
       <div className="max-w-[min(34.68rem,95%)] mx-auto -mt-6 mb-10">
-        <SearchForm />
+        <Suspense>
+          <SearchForm />
+        </Suspense>
       </div>
       <div className="container">{children}</div>
     </div>
