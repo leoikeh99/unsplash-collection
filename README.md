@@ -32,10 +32,15 @@ Users should be able to:
 ### Screenshots
 
 ![Home Page (Light)](./screenshots/desktop_home.png)
+
 ![Home Page (Dark)](./screenshots/desktop_home_dark.png)
+
 ![Search Page (Light)](./screenshots/desktop_search.png)
+
 ![Search Page (Dark)](./screenshots/desktop_search_dark.png)
+
 ![Home Page Mobile (Light)](./screenshots/mobile_home.png)
+
 ![Home Page Mobile (Dark)](./screenshots/mobile_home_dark.png)
 
 ### Links
