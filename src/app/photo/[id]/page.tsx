@@ -25,6 +25,7 @@ async function ViewPhoto({ params }: { params: { id: string } }) {
       <div className="max-w-[40rem] block tab:grid tab:max-w-full tab:grid-cols-2 tab:gap-9 mx-auto py-10">
         <div className="">
           <Image
+            unoptimized
             src={photo.urls.regular}
             className="w-full object-cover rounded-md"
             alt={photo.alt_description || "photo image"}
@@ -35,6 +36,7 @@ async function ViewPhoto({ params }: { params: { id: string } }) {
         <div className="mt-12 tab:mt-0">
           <div className="flex items-center gap-4 mb-5">
             <Image
+              unoptimized
               src={photo.user.profile_image.medium}
               alt="Publisher Profile Photo"
               className="rounded-full"

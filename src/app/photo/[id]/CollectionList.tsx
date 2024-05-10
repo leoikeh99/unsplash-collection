@@ -35,6 +35,7 @@ const CollectionItem = ({
       disabled={removePhotoMutation.isPending}
     >
       <Image
+        unoptimized
         src={
           collection.photos[collection.photos.length - 1]?.image ||
           "/assets/no-image.png"

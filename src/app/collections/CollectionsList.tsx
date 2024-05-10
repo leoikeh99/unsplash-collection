@@ -40,6 +40,7 @@ async function CollectionsList() {
                         )}
                       >
                         <Image
+                          unoptimized
                           src={photo.image}
                           className="w-full h-full object-cover block"
                           alt={collection.description || "collection image"}
@@ -71,6 +72,7 @@ async function CollectionsList() {
                 <div>
                   <div className="h-[13rem] xs:h-[17rem] rounded-md overflow-hidden relative">
                     <Image
+                      unoptimized
                       src="/assets/no-image.png"
                       className="w-full h-full object-cover block border-2 border-gray-300 rounded-md"
                       alt={collection.description || "No image"}

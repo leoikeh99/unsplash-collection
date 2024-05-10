@@ -4,7 +4,6 @@ import { Dialog, DialogHeading } from "@ariakit/react";
 import { useContext, useEffect, useState } from "react";
 import AddToCollections from "./forms/AddToCollection";
 import CreateCollection from "./forms/CreateCollection";
-import Image from "next/image";
 import { Full } from "unsplash-js/dist/methods/photos/types";
 import { ArrowLeft, Plus } from "lucide-react";
 
