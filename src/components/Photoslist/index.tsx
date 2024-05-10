@@ -21,6 +21,7 @@ const PhotosList = ({ photos }: Props) => {
             {arr.map((photo) => (
               <div key={photo.id} className="mb-5 relative">
                 <Image
+                  unoptimized
                   className="rounded-md"
                   src={photo.urls.small}
                   alt={photo.alt_description || "photo image"}
@@ -41,6 +42,7 @@ const PhotosList = ({ photos }: Props) => {
             {arr.map((photo) => (
               <div key={photo.id} className="mb-5 relative">
                 <Image
+                  unoptimized
                   className="rounded-md"
                   src={photo.urls.small}
                   alt={photo.alt_description || "photo image"}
@@ -61,6 +63,7 @@ const PhotosList = ({ photos }: Props) => {
             {arr.map((photo) => (
               <div key={photo.id} className="mb-5 relative">
                 <Image
+                  unoptimized
                   className="rounded-md"
                   src={photo.urls.small}
                   alt={photo.alt_description || "photo image"}

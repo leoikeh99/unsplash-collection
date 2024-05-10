@@ -21,6 +21,7 @@ const Logo = () => {
               alt="logo"
               width={118}
               height={24}
+              unoptimized
               priority
             />
           ) : (
@@ -29,6 +30,7 @@ const Logo = () => {
               alt="logo"
               width={118}
               height={24}
+              unoptimized
               priority
             />
           )}

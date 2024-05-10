@@ -10,7 +10,7 @@ export const searchPhotos = async (search: string, page = 1) => {
     const response = await unsplash.search.getPhotos({
       query: search,
       page: page,
-      perPage: 28, //maximum is 30
+      perPage: 20, //maximum is 30
     });
     if (!response.response) throw new Error("Something went wrong");
     return {
