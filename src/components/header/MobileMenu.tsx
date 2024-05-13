@@ -1,10 +1,10 @@
 import "@/styles/uiStyles.css";
+import { useContext } from "react";
 import { Dialog, useDialogStore } from "@ariakit/react";
 import { LogIn, LogOut, Menu } from "lucide-react";
-import Image from "next/image";
-import React, { useContext } from "react";
-import NavLinks from "./NavLinks";
 import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
+import NavLinks from "./NavLinks";
 import DialogContext from "@/context/DialogContext";
 import Logo from "../Logo";
 import ThemePanel from "./ThemePanel";
@@ -38,6 +38,7 @@ const MobileMenu = () => {
           {status === "authenticated" ? (
             <div className="flex items-center gap-4">
               <Image
+                unoptimized
                 src={data?.user?.image || `/assets/user.svg`}
                 alt="avatar"
                 width={50}

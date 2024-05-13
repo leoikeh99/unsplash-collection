@@ -16,6 +16,7 @@ const UserPanel = () => {
       <DropdownMenuTrigger>
         <p className="sr-only">Open user menu</p>
         <Image
+          unoptimized
           src={data?.user?.image || `/assets/user.svg`}
           alt="avatar"
           width={30}
