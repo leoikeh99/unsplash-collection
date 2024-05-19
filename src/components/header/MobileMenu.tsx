@@ -25,7 +25,7 @@ const MobileMenu = () => {
         backdrop={
           <div className="sm:hidden bg-black opacity-0 transition-opacity data-[enter]:opacity-40 data-[leave]:opacity-0" />
         }
-        className="sm:hidden fixed top-0 right-0 w-80 h-dvh flex flex-col justify-between bg-background transition-transform translate-x-full data-[enter]:translate-x-0 data-[leave]:translate-x-full py-5 px-4"
+        className="sm:hidden fixed top-0 right-0 w-11/12 xs:w-80 h-dvh flex flex-col justify-between bg-background transition-transform translate-x-full data-[enter]:translate-x-0 data-[leave]:translate-x-full py-5 px-4"
       >
         <div className="flex items-center justify-between">
           <Logo />
