@@ -1,4 +1,6 @@
 import { createApi } from "unsplash-js";
+import { unstable_noStore as noStore } from "next/cache";
+
 const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY as string;
 
 const unsplash = createApi({
@@ -26,6 +28,7 @@ export const searchPhotos = async (search: string, page = 1) => {
 };
 
 export const getPhoto = async (id: string) => {
+  noStore();
   try {
     const response = await unsplash.photos.get({ photoId: id });
     if (!response.response) throw new Error("Something went wrong");
@@ -36,6 +39,7 @@ export const getPhoto = async (id: string) => {
 };
 
 export const getUserPhotos = async (ids: string[]) => {
+  noStore();
   try {
     const response = await Promise.all(
       ids.map(async (id) => await unsplash.photos.get({ photoId: id }))
