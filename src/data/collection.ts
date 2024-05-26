@@ -2,10 +2,9 @@ import authOptions from "@/app/api/auth/[...nextauth]/authOptions";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { getUserPhotos } from "./unsplash";
-import { unstable_noStore as noStore } from "next/cache";
+import { unstable_cache } from "next/cache";
 
 export const getPhotoCollections = async (unsplashId: string) => {
-  noStore();
   const session = await getServerSession(authOptions);
   const userId = session?.user.id as string;
 
@@ -26,25 +25,27 @@ export const getPhotoCollections = async (unsplashId: string) => {
   return collections;
 };
 
-export const getUserCollections = async () => {
-  noStore();
-  const session = await getServerSession(authOptions);
-  const userId = session?.user.id as string;
+export const getUserCollections = unstable_cache(
+  async () => {
+    const session = await getServerSession(authOptions);
+    const userId = session?.user.id as string;
 
-  const collections = await prisma.collection.findMany({
-    where: {
-      userId,
-    },
-    include: {
-      photos: true,
-    },
-  });
+    const collections = await prisma.collection.findMany({
+      where: {
+        userId,
+      },
+      include: {
+        photos: true,
+      },
+    });
 
-  return collections;
-};
+    return collections;
+  },
+  ["user-collections"],
+  { tags: ["user-collections"] }
+);
 
 export const getUserCollection = async (collectionId: string, page = 1) => {
-  noStore();
   const session = await getServerSession(authOptions);
   const userId = session?.user.id as string;
 

@@ -8,6 +8,7 @@ const unsplash = createApi({
 });
 
 export const searchPhotos = async (search: string, page = 1) => {
+  noStore();
   try {
     const response = await unsplash.search.getPhotos({
       query: search,

@@ -1,5 +1,4 @@
 import type { Collection, Photo } from "@prisma/client";
-import { Full } from "unsplash-js/dist/methods/photos/types";
 
 export async function getCollections(
   photo?: string,
@@ -20,61 +19,6 @@ export async function getCollections(
   const queryString = new URLSearchParams(params).toString();
 
   const response = await fetch(`/api/collections?${queryString}`);
-  if (!response.ok) {
-    throw new Error("Something went wrong");
-  }
-  return response.json();
-}
-
-export async function addPhotoToCollection(
-  photo: Full,
-  collectionId: string
-): Promise<Collection & { photos: Array<Photo> }> {
-  const response = await fetch(`/api/collections/${collectionId}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      unsplashId: photo.id,
-      description: photo.description || "",
-      image: photo.urls.regular,
-    }),
-  });
-
-  if (!response.ok) {
-    throw new Error("Something went wrong");
-  }
-
-  return response.json();
-}
-
-export async function removePhotoFromCollection(
-  collectionId: string,
-  photoId: string
-): Promise<Collection & { photos: Array<Photo> }> {
-  const response = await fetch(`/api/collections/photo`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      collectionId,
-      photoId,
-    }),
-  });
-
-  if (!response.ok) {
-    throw new Error("Something went wrong");
-  }
-
-  return response.json();
-}
-
-export async function getPhotoCollections(
-  photoId: string
-): Promise<Array<Collection & { photos: Array<Photo> }>> {
-  const response = await fetch(`/api/collections?photo=${photoId}`);
   if (!response.ok) {
     throw new Error("Something went wrong");
   }

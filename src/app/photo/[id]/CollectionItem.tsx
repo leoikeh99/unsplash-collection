@@ -1,45 +1,34 @@
 "use client";
 import { classNames } from "@/utils";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Full } from "unsplash-js/dist/methods/photos/types";
 import type { Collection, Photo } from "@prisma/client";
 import Image from "next/image";
-import { useToast } from "@/components/ui/use-toast";
-import { Plus } from "lucide-react";
-import { addToCollection } from "@/actions/collections";
+import { Minus } from "lucide-react";
+import { removeFromCollection } from "@/actions/collections";
 
-type Props = {
+const CollectionItem = ({
+  collection,
+  unsplashId,
+}: {
   collection: Collection & { photos: Array<Photo> };
-  photo: Full;
-};
-
-const CollectionItem = ({ collection, photo }: Props) => {
+  unsplashId: string;
+}) => {
   const queryClient = useQueryClient();
-  const { toast } = useToast();
 
-  const action = addToCollection.bind(
-    null,
-    {
-      image: photo.urls.regular,
-      unsplashId: photo.id,
-      description: photo.description || "",
-    },
-    collection.id
-  );
+  const action = removeFromCollection.bind(null, collection.id, unsplashId);
 
-  const addToCollectionMutation = useMutation({
+  const removePhotoMutation = useMutation({
     mutationFn: action,
     onSuccess: () => {
-      toast({ title: "Photo added to collection" });
-      queryClient.invalidateQueries({ queryKey: ["collections"] });
+      queryClient.invalidateQueries({ queryKey: ["photoCollections"] });
     },
   });
 
   return (
     <button
-      className="flex w-full gap-4 items-center text-left p-2 disabled:cursor-not-allowed hover:bg-muted rounded-lg group"
-      onClick={() => addToCollectionMutation.mutate()}
-      disabled={addToCollectionMutation.isPending}
+      className="flex w-full gap-3 sm:gap-4 items-center text-left p-2 hover:bg-muted rounded-lg group disabled:cursor-not-allowed [&:not(:last-child)]:mb-3 group"
+      onClick={() => removePhotoMutation.mutate()}
+      disabled={removePhotoMutation.isPending}
     >
       <Image
         unoptimized
@@ -67,18 +56,18 @@ const CollectionItem = ({ collection, photo }: Props) => {
           </p>
         </div>
         <div>
-          <p className="btn-ghost btn-sm sm:invisible group-hover:visible group-focus:visible">
-            {!addToCollectionMutation.isPending ? (
-              <>
-                <Plus size={16} />
-                <span>
-                  Add <span className="hidden sm:inline">to Collection</span>
-                </span>
-              </>
-            ) : (
-              "Adding..."
-            )}
-          </p>
+          {
+            <p className="btn-ghost btn-sm sm:invisible group-hover:visible group-focus:visible">
+              {!removePhotoMutation.isPending ? (
+                <>
+                  <Minus size={16} />
+                  Remove
+                </>
+              ) : (
+                "Removing..."
+              )}
+            </p>
+          }
         </div>
       </div>
     </button>

@@ -1,11 +1,9 @@
 import { getUserCollections } from "@/data/collection";
 import { classNames } from "@/utils";
-import { unstable_noStore as noStore } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 
 async function CollectionsList() {
-  noStore();
   const collections = await getUserCollections();
   return (
     <div>

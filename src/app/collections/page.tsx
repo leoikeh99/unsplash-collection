@@ -5,7 +5,6 @@ import { getServerSession } from "next-auth";
 import authOptions from "../api/auth/[...nextauth]/authOptions";
 import { redirect } from "next/navigation";
 import CollectionsLoader from "./CollectionsLoader";
-import { unstable_noStore as noStore } from "next/cache";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -15,7 +14,6 @@ export const metadata: Metadata = {
 };
 
 async function Collections() {
-  noStore();
   const session = await getServerSession(authOptions);
   if (!session) redirect("/");
 
